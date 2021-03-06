@@ -3,15 +3,12 @@
 #include <iostream>
 MyGlWidget::MyGlWidget(QWidget *parent) :
     QGLWidget(parent)
-    //ui(new Ui::MyGlWidget)
 {
-    //resize(500,300);
     xRot = 0;
     yRot = 0;
     zRot = 0;
     currentPrimitive = GL_POINTS;
     countDots = 5;
-    //ui->setupUi(this);
 }
 
 static void qNormalizeAngle(int &angle)
@@ -65,7 +62,6 @@ GLuint MyGlWidget::initShader(const char *filePath, GLuint type)
     }
     const char* shader_txt = shaderCode.c_str();
 
-   //const char* shader_txt = MyGlWidget::loadShaderFile(filePath);
 
     GLuint shader = glCreateShader(type);
     glShaderSource(shader, 1, &shader_txt, NULL);
@@ -116,10 +112,7 @@ void MyGlWidget::resizeGL(int width, int height)
 {
     int side = qMin(width, height);
     glViewport((width - side) / 2, (height - side) / 2, side, side);
-   // glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-   //glOrtho(-2, +2, -2, +2, 1.0, 15.0);
-    //glMatrixMode(GL_MODELVIEW);
 }
 
 
@@ -169,50 +162,25 @@ void MyGlWidget::initializeGL()
 {
     initializeOpenGLFunctions();
     initAllShaders();
-    std::cout << "initializeGL" << currentPrimitive<< "\n";
-    //glOrtho(-3,3, -3,3, -3,3);
-    // glFrustum(-1,1, -1,1, 2,8);
-
-    //glClearColor(0.7f, 1.0f, 0.7f, 0.0f);
-    //qglClearColor(Qt::white); // заполняем экран цветом
-    //glClear(GL_COLOR_BUFFER_BIT);
-    //glEnable(GL_DEPTH_TEST); // задаем глубину проверки пикселей
-    //glShadeModel(GL_FLAT); // убираем режим сглаживания цветов
-    //glEnable(GL_CULL_FACE); // говорим, что будем строить только внешние поверхности
-    //glShadeModel(GL_SMOOTH);
-
 }
 
 bool changeOrtho = 0;
 
 void MyGlWidget::Init()
 {
-        //glFrustum(-1,1, -1,1, 2,3);
 
    std::cout << "INIT" <<"\n";
 
-   //glMatrixMode(GL_PROJECTION);
-   //glLoadIdentity();
-
-   //glFrustum(-0.1,0.1, -0.1,0.1, 0.2,1000);
   if (!changeOrtho){
-      //glLoadIdentity();
-       //glOrtho(-10,10, -10,10, -5,5);
        changeOrtho = 1;
        glFrustum(-10,10, -10,10, 2,80);
        glTranslatef(0,0,-3);
   }
 
 
-
-
-   //glMatrixMode(GL_MODELVIEW);
-  //glLoadIdentity();
-
     glEnable(GL_DEPTH_TEST); // задаем глубину проверки пикселей
     glEnable(GL_LIGHTING);
     glEnable(GL_LIGHT0);
-
 }
 
 
@@ -221,22 +189,11 @@ void MyGlWidget::paintGL()
 {
     std::cout << "paintGL" << xRot << currentPrimitive<< "\n";
 
-    //glClearColor(0.7f, 1.0f, 0.7f, 0.0f);
     glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     if (!changeOrtho){
             Init();
     }
-
-
-
-    //glFrustum(-1,1, -1,1, 2,8);
-    //glLoadIdentity();
-    //glTranslatef(0.0, 0.0, -10.0);
-//    glRotatef(xRot / 16.0, 1.0f, 0.0f, 0.0f);
-//    glRotatef(yRot / 16.0, 0.0f, 1.0f, 0.0f);
-//    glRotatef(zRot / 16.0, 0.0f, 0.0f, 1.0f);
-    //drawGl();
     draw3Dscene();
 
 }
@@ -244,22 +201,7 @@ void MyGlWidget::paintGL()
 
 void MyGlWidget::drawScene()
 {
-    GLfloat pVerts[]= {-0.5f, -0.5f, 0.0f,
-
-                        0.5f,  0.0f, 0.0f,
-
-                       -0.5f , 0.5f, 0.0f};
-
-    GLfloat colors[] = {1,0,0,  0,0,1, 0,1,0};
-
-
-    glVertexPointer(3, GL_FLOAT, 0, pVerts);
-    //glVertexPointer(2, GL_FLOAT, 0, &vertices);
-        glColorPointer(3, GL_FLOAT, 0, colors);
-        //glColor3ub(255,0,0); // красный
-        glDrawArrays(GL_TRIANGLES, 0, 3);
-    glDisableClientState(GL_VERTEX_ARRAY);
-    glDisableClientState(GL_COLOR_ARRAY);
+ 
 }
 
 
@@ -269,11 +211,10 @@ void MyGlWidget::draw3Dscene()
     //glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
     //glClear(GL_COLOR_BUFFER_BIT);
 
-
     glPushMatrix();
     moveView();
 
-    glNormal3f(0,0,1); // вектор нормали для поверхности
+    //glNormal3f(0,0,1); // вектор нормали для поверхности
 
     glEnableClientState(GL_VERTEX_ARRAY);
         glVertexPointer(3, GL_FLOAT, 0, vert);
@@ -290,10 +231,7 @@ void MyGlWidget::draw3Dscene()
             }
         }
 
-        //glColor3f(0, 0.5, 0);
-        //glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
     glDisableClientState(GL_VERTEX_ARRAY);
-
 
     glPopMatrix();
 }
@@ -358,28 +296,11 @@ void MyGlWidget::drawGl()
         glColor3f(0.0f, 1.0f, 0.0f); glVertex2d(-0.5, -0.85);
         glColor3f(0.0f, 0.0f, 1.0f); glVertex2d(-0.85, 0.5);
    glEnd();
-
-//    glMatrixMode(GL_PROJECTION);
-//    glLoadIdentity();
-//    glOrtho(0,20,20,0,1,0);
-
-//    glPointSize(10);
-//    glBegin(currentPrimitive);
-//        glColor3f(1, 0, 0);
-//        glVertex2d(-0.4,  0.4);
-//        glVertex2d( 0.4,  0.4);
-//       glColor3f(0, 1, 0);
-//        glVertex2d( 0.8, 0);
-//        glVertex2d( 0.4, -0.4);
-//        glColor3f(0, 0, 1);
-//        glVertex2d(-0.4, -0.4);
-//        glVertex2d( -0.8, 0);
-//   glEnd();
 }
 
 
 void MyGlWidget::selectPrimitive(int primitive){
-    if (primitive == 0){
+    
         currentPrimitive = GL_POINTS;
     }else if(primitive == 1){
         currentPrimitive = GL_LINES;
