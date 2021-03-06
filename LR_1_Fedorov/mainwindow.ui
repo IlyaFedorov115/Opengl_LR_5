@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>707</width>
+    <height>813</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <widget class="MyGlWidget" name="myGlWidget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>45</x>
+      <y>10</y>
+      <width>601</width>
+      <height>601</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QSlider" name="xRotSlider">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>640</y>
+      <width>321</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="maximum">
+     <number>360</number>
+    </property>
+    <property name="singleStep">
+     <number>16</number>
+    </property>
+    <property name="pageStep">
+     <number>15</number>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+    <property name="tickPosition">
+     <enum>QSlider::TicksAbove</enum>
+    </property>
+    <property name="tickInterval">
+     <number>15</number>
+    </property>
+   </widget>
+   <widget class="QSlider" name="yRotSlider">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>670</y>
+      <width>321</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="maximum">
+     <number>360</number>
+    </property>
+    <property name="singleStep">
+     <number>16</number>
+    </property>
+    <property name="pageStep">
+     <number>15</number>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+    <property name="tickPosition">
+     <enum>QSlider::TicksAbove</enum>
+    </property>
+    <property name="tickInterval">
+     <number>15</number>
+    </property>
+   </widget>
+   <widget class="QSlider" name="zRotSlider">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>700</y>
+      <width>321</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="maximum">
+     <number>360</number>
+    </property>
+    <property name="singleStep">
+     <number>16</number>
+    </property>
+    <property name="pageStep">
+     <number>15</number>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+    <property name="tickPosition">
+     <enum>QSlider::TicksAbove</enum>
+    </property>
+    <property name="tickInterval">
+     <number>15</number>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>640</y>
+      <width>41</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>xRot</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>670</y>
+      <width>41</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>yRot</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>700</y>
+      <width>41</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>zRot</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="comboBox">
+    <property name="geometry">
+     <rect>
+      <x>480</x>
+      <y>640</y>
+      <width>151</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>GL_POINTS</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>GL_LINES</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>GL_LINE_STRIP</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>GL_LINE_LOOP</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>GL_TRIANGLES</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>GL_TRIANGLE_STRIP</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>GL_TRIANGLE_FAN</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>GL_QUADS</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>GL_QUAD_STRIP</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>GL_POLYGON</string>
+     </property>
+    </item>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>707</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>MyGlWidget</class>
+   <extends>QWidget</extends>
+   <header>myglwidget.h</header>
+   <container>1</container>
+   <slots>
+    <slot>setXRotation(int)</slot>
+    <slot>setYRotation(int)</slot>
+    <slot>setZRotation(int)</slot>
+    <slot>selectPrimitive(int)</slot>
+   </slots>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>xRotSlider</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>myGlWidget</receiver>
+   <slot>setXRotation(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>155</x>
+     <y>381</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>164</x>
+     <y>285</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>yRotSlider</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>myGlWidget</receiver>
+   <slot>setYRotation(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>233</x>
+     <y>408</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>244</x>
+     <y>280</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>zRotSlider</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>myGlWidget</receiver>
+   <slot>setZRotation(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>323</x>
+     <y>437</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>316</x>
+     <y>288</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>comboBox</sender>
+   <signal>currentIndexChanged(int)</signal>
+   <receiver>myGlWidget</receiver>
+   <slot>selectPrimitive(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>488</x>
+     <y>382</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>471</x>
+     <y>290</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
